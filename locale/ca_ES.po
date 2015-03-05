@@ -1,0 +1,7 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:product.product:"
+msgid "The Code of the Product must be unique."
+msgstr "El Codi del Producte ha de ser únic."
