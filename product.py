@@ -16,3 +16,16 @@ class Product:
             ('code_uniq', 'UNIQUE (code)',
                 'The Code of the Product must be unique.'),
             ]
+
+    @classmethod
+    def copy(cls, products, default=None):
+        if default is None:
+            default = {}
+        if 'code' in default:
+            return super(Product, cls).copy(products, default)
+        default = default.copy()
+        result = []
+        for product in products:
+            default['code'] = '%s (%d)' % (product.code, 2)
+            result += super(Product, cls).copy([product], default)
+        return result
