@@ -28,7 +28,6 @@ class TestCase(ModuleTestCase):
                     'name': 'P1',
                     'type': 'goods',
                     'list_price': Decimal(20),
-                    'cost_price': Decimal(10),
                     'default_uom': kilogram.id,
                     'products': [('create', [{
                                     'code': '1',
@@ -40,7 +39,6 @@ class TestCase(ModuleTestCase):
                     'name': 'P2',
                     'type': 'goods',
                     'list_price': Decimal(20),
-                    'cost_price': Decimal(10),
                     'default_uom': kilogram.id,
                     'products': [('create', [{}])],
                     }])
