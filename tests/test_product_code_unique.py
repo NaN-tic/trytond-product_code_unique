@@ -27,7 +27,6 @@ class TestCase(ModuleTestCase):
         Template.create([{
                     'name': 'P1',
                     'type': 'goods',
-                    'list_price': Decimal(20),
                     'default_uom': kilogram.id,
                     'products': [('create', [{
                                     'code': '1',
@@ -38,22 +37,19 @@ class TestCase(ModuleTestCase):
         Template.create([{
                     'name': 'P2',
                     'type': 'goods',
-                    'list_price': Decimal(20),
                     'default_uom': kilogram.id,
                     'products': [('create', [{}])],
                     }])
 
         # Fail if repeated code
-        self.assertRaises(Exception, Template.create, [{
+        self.assertRaises(Exception, Template.create([{
                     'name': 'P3',
                     'type': 'goods',
-                    'list_price': Decimal(20),
-                    'cost_price': Decimal(10),
                     'default_uom': kilogram.id,
                     'products': [('create', [{
                                     'code': '1',
                                     }])],
-                    }])
+                    }]))
         transaction.rollback()
 
 
