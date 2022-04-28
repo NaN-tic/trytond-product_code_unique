@@ -1,16 +1,14 @@
+
 # This file is part of Tryton.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-import unittest
-from decimal import Decimal
 
-import trytond.tests.test_tryton
 from trytond.tests.test_tryton import ModuleTestCase, with_transaction
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 
 
-class TestCase(ModuleTestCase):
-    'Test module'
+class ProductCodeUniqueTestCase(ModuleTestCase):
+    'Test ProductCodeUnique module'
     module = 'product_code_unique'
 
     @with_transaction()
@@ -53,7 +51,4 @@ class TestCase(ModuleTestCase):
         transaction.rollback()
 
 
-def suite():
-    suite = trytond.tests.test_tryton.suite()
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestCase))
-    return suite
+del ModuleTestCase
